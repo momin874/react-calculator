@@ -1,0 +1,17 @@
+.default-button-area {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.numeric-buttons {
+  width: 65px;
+  height: 60px;
+}
+.special-buttons {
+  width: 140px;
+  height: 60px;
+}

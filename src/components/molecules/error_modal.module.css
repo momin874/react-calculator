@@ -1,0 +1,17 @@
+.default-modal {
+  background-color: red;
+  color: white;
+  width: 40%;
+  height: 40px;
+  z-index: 1;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  line-height: 40px;
+  border-radius: 8px;
+  top: -80px;
+}
+.show {
+  transition: top 0px;
+}

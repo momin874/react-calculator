@@ -1,0 +1,16 @@
+.default-input-element {
+  float: right;
+  height: 45px;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  direction: rtl; /* Text starts from the right */
+  text-align: right; /* Cursor moves to the right */
+  unicode-bidi: plaintext;
+  font-size: 20px;
+}
+.default-input-element:focus {
+  border-color: transparent;
+  box-shadow: none; /* Ensures no shadow effect */
+  outline: none; /* Removes default focus outline */
+}

@@ -1,0 +1,6 @@
+.default-box {
+  background-color: rgb(232, 219, 194);
+  color: black;
+  border: 1px solid black;
+  box-shadow: 1px 1px 5px black;
+}
