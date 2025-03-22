@@ -28,16 +28,31 @@ const InputArea = () => {
     resetText();
     updateText(textString.slice(0, textString.length - 1));
   };
-  const validateMathematicalExpression = () => {
-    setErrorMessage("Invalid Mathematical Expression");
+  const validateMathematicalExpression: (expression: string) => boolean = (
+    expression
+  ) => {
+    const re = /^([-+]?\d+(\.\d+)?[\+\-x\/])*([-+]?\d+(\.\d+)?)+$/
+    return re.test(expression);
   };
   const doCalculation = () => {
-    validateMathematicalExpression();
+    const isValidExpression = validateMathematicalExpression(text);
+    if (!isValidExpression) {
+      setErrorMessage("Invalid Mathematical Expression");
+      return null;
+    }
+    return new Function(`return ${text.replace('x','*')}`)()
   };
+
   const handleButtonClick = (value: string) => {
     if (value == "C") resetText();
     else if (value == "[x]") removeCharacter();
-    else if (value == "=") doCalculation();
+    else if (value == "=") {
+        const result = doCalculation()
+        if(result || Number.isNaN(result)){
+            resetText()
+            updateText(result)
+        }
+    }
     else updateText(value);
   };
   return (

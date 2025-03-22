@@ -13,5 +13,10 @@
   top: -80px;
 }
 .show {
-  transition: top 0px;
+  top: 0px;
+  transition: top 1s;
+}
+.hide {
+  top: -80px;
+  transition: top 1s;
 }

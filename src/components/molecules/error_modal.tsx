@@ -3,18 +3,25 @@ import Lablel from "../atoms/label";
 import { useMyContext } from "../mycontext";
 import style from "./error_modal.module.css";
 const ErrorModal = () => {
-  const { errorMessage } = useMyContext();
+  const { errorMessage, setErrorMessage } = useMyContext();
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    if (isVisible) {
+    if (errorMessage.length) {
+      setIsVisible(true);
       setTimeout(() => {
         setIsVisible(false);
-      }, 2000);
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 1000);
+      }, 3000);
     }
-  }, [isVisible]);
+  }, [errorMessage]);
   return (
-    <span className={`${style["default-modal"]} ${isVisible ? "show" : ""}`}>
+    <span
+      className={`${style["default-modal"]} ${
+        isVisible ? style["show"] : style["hide"]
+      }`}
+    >
       <Lablel label={errorMessage}></Lablel>
     </span>
   );
